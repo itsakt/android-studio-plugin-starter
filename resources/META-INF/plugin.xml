@@ -1,0 +1,48 @@
+<idea-plugin version="2">
+    <id>com.akt.awesomeplugin</id>
+    <name>Awesome Plugin</name>
+    <version>1.0</version>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+        My Awesome plugin to add toolbar button and a panel.
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultProjectTypeProvider type="Android"/>
+        <projectService serviceImplementation="com.akt.awesomeplugin.StorageHelper" />
+        <toolWindow id="Awesome Plugin"
+                    icon="/icons/icon.png"
+                    anchor="right"
+                    factoryClass="com.akt.awesomeplugin.ToolWindowHandler">
+        </toolWindow>
+    </extensions>
+
+    <actions>
+        <action id="100"
+                class="com.akt.awesomeplugin.ButtonActionHandler"
+                text="Awesome Button"
+                description="Does awesome stuff."
+                icon="/icons/icon.png">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+            <add-to-group group-id="NavBarToolBar" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt A"/>
+        </action>
+    </actions>
+
+</idea-plugin>
